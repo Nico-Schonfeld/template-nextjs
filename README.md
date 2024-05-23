@@ -32,7 +32,7 @@ Esta plantilla es ideal para desarrolladores que desean crear una aplicación we
 Clonar el repo:
 
 ```bash
-  https://github.com/Nico-Schonfeld/template-nextjs.git
+  git clone https://github.com/Nico-Schonfeld/template-nextjs.git
   cd template-nextjs
 ```
 
