@@ -1,0 +1,23 @@
+{
+  "layout": {
+    "home": {
+      "header": {
+        "titleLink": "Next.js",
+        "link": "https://nextjs.org/"
+      },
+      "title": "Template ",
+      "spanTitle": "Next.js",
+      "description": "To get started, edit the file: ",
+      "spanDescription": "@/app/(website)/page.client.tsx"
+    }
+  },
+
+  "admin": {},
+
+  "pageNotFound": {
+    "title": "Oooooops!",
+    "description": "Error 404",
+    "link": "/",
+    "textLink": "Back"
+  }
+}

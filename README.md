@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Plantilla de Next.js con Autenticación JWT, Next-Theme y Shadcn/UI
 
-## Getting Started
+Esta plantilla es ideal para desarrolladores que desean crear una aplicación web con Next.js. Incluye las siguientes funcionalidades:
 
-First, run the development server:
+## Características clave
+
+1. **Autenticación JWT**:
+
+   - Registro de usuarios con validación de campos.
+   - Inicio de sesión con generación de tokens JWT.
+   - Protección de rutas privadas mediante middleware.
+
+2. **Next-Theme**:
+
+   - Alternancia de temas (modo claro y oscuro).
+   - Personalización de colores y estilos.
+
+3. **Shadcn/UI**:
+   - Componentes reutilizables para botones, formularios, tarjetas, etc.
+   - Estilos modernos y atractivos.
+   - Integración sencilla con Next.js.
+
+## Instrucciones de uso
+
+1. Clona este repositorio o crea un nuevo proyecto Next.js.
+2. Configura la autenticación JWT en `utils/auth.ts`.
+3. Instala y configura Next-Theme y Shadcn/UI según la documentación oficial.
+4. Crea tus rutas protegidas y utiliza los componentes de Shadcn/UI para diseñar tu interfaz.
+
+## Instalación
+
+Clonar el repo:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  https://github.com/Nico-Schonfeld/template-nextjs.git
+  cd template-nextjs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Instalar dependencias:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Authors
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [@nicoschonfeld\_](https://nicoschonfeld.vercel.app/)
