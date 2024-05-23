@@ -1,4 +1,4 @@
-# Plantilla de Next.js con Autenticación JWT, Next-Theme y Shadcn/UI
+# Plantilla de Next.js + TypeScript con Autenticación JWT, Next-Theme y Shadcn/UI
 
 Esta plantilla es ideal para desarrolladores que desean crear una aplicación web con Next.js. Incluye las siguientes funcionalidades:
 

@@ -1,6 +1,6 @@
 {
-  "name": "template-nextjs-v.1",
-  "version": "0.1.0",
+  "name": "template-nextjs",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
