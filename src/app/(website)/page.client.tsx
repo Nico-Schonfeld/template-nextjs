@@ -140,9 +140,13 @@ const AppComponent = () => {
           transition={{ delay: 0.4 }}
           className="flex items-center justify-center gap-5 mt-5"
         >
-          <Button onClick={() => dispatch(decrement())}>-</Button>
+          <Button variant="secondary" onClick={() => dispatch(decrement())}>
+            -
+          </Button>
           <span>{count}</span>
-          <Button onClick={() => dispatch(increment())}>+</Button>
+          <Button variant="secondary" onClick={() => dispatch(increment())}>
+            +
+          </Button>
         </motion.div>
       </div>
     </main>
