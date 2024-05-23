@@ -40,10 +40,7 @@ const AppComponent = () => {
     <main className="w-full h-screen overflow-hidden">
       <header className="w-full h-auto fixed top-0 left-0 border-b overflow-hidden">
         <nav className="w-full h-full container mx-auto flex items-center justify-between px-5 py-3">
-          <motion.div
-            initial={{ opacity: 0, y: 500 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
+          <div>
             <Link
               href="https://nextjs.org/"
               target="_blank"
@@ -52,13 +49,9 @@ const AppComponent = () => {
             >
               Next.js
             </Link>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 500 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-          >
+          <div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" size="icon">
@@ -109,40 +102,25 @@ const AppComponent = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-          </motion.div>
+          </div>
         </nav>
       </header>
 
       <div className="w-full h-full container mx-auto flex items-center justify-center flex-col gap-1 lg:gap-5">
-        <motion.h1
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-4xl lg:text-5xl font-black text-balance text-center"
-        >
+        <h1 className="text-4xl lg:text-5xl font-black text-balance text-center">
           <span>{text.title}</span>
           <span className="animate-background-shine bg-[linear-gradient(110deg,#000000,45%,#c4c4c4,55%,#000000)] dark:bg-[linear-gradient(110deg,#ffffff,45%,#c8c8c8,55%,#ffffff)] bg-[length:250%_100%] bg-clip-text text-transparent">
             {text.spanTitle}
           </span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="mt-5 text-pretty text-center flex items-center flex-col gap-3 lg:flex-row"
-        >
+        </h1>
+        <p className="mt-5 text-pretty text-center flex items-center flex-col gap-3 lg:flex-row">
           {text.description}
           <code className="bg-gray-100 dark:bg-transparent dark:border p-3 rounded-md text-sm dark:text-gray-300">
             {text.spanDescription}
           </code>
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="flex items-center justify-center gap-5 mt-5"
-        >
+        <div className="flex items-center justify-center gap-5 mt-5">
           <Button variant="secondary" onClick={() => dispatch(decrement())}>
             -
           </Button>
@@ -150,16 +128,17 @@ const AppComponent = () => {
           <Button variant="secondary" onClick={() => dispatch(increment())}>
             +
           </Button>
-        </motion.div>
+        </div>
       </div>
 
       <footer className="w-full h-auto fixed bottom-0 left-0 border-b overflow-hidden">
-        <div className="w-full h-full container mx-auto flex items-center justify-center px-5 py-3 text-gray-500">
+        <div className="w-full h-full container mx-auto flex items-center justify-center px-5 py-3 text-gray-500 text-pretty text-center text-sm">
           <span>
             © {moment().format("YYYY")} Template Next.js,{" "}
             <Link
               href="https://nicoschonfeld.vercel.app/"
               target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-gray-800 dark:hover:text-gray-200 transition-all"
             >
               @Nicoschonfeld
