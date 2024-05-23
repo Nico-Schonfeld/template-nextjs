@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^5.14.0",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
     "bcrypt": "^5.1.1",
     "class-variance-authority": "^0.7.0",
@@ -19,8 +21,10 @@
     "lucide-react": "^0.379.0",
     "next": "^14.2.3",
     "next-themes": "^0.3.0",
+    "prisma": "^5.14.0",
     "react": "^18",
     "react-dom": "^18",
+    "sass": "^1.77.2",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
   },

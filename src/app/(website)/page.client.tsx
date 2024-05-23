@@ -103,7 +103,7 @@ const AppComponent = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-4xl lg:text-5xl font-bold text-pretty text-center"
+          className="text-4xl lg:text-5xl font-bold text-balance text-center"
         >
           {text.title}
           <span className="animate-background-shine bg-[linear-gradient(110deg,#000000,45%,#c4c4c4,55%,#000000)] dark:bg-[linear-gradient(110deg,#ffffff,45%,#c8c8c8,55%,#ffffff)] bg-[length:250%_100%] bg-clip-text text-transparent">
@@ -114,7 +114,7 @@ const AppComponent = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="mt-5 text-balance text-center flex items-center flex-col gap-3 lg:flex-row"
+          className="mt-5 text-pretty text-center flex items-center flex-col gap-3 lg:flex-row"
         >
           {text.description}
           <code className="bg-gray-100 dark:bg-transparent dark:border p-3 rounded-md text-sm dark:text-gray-300">
