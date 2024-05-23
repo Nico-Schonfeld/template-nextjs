@@ -29,7 +29,7 @@ Esta plantilla es ideal para desarrolladores que desean crear una aplicación we
 
 ## Extra
 
-Eres libre de añadir o remover código. Utiliza esta base para crear tu mejor proyecto
+Eres libre de añadir o remover código. Utiliza esta base para crear tu mejor proyecto.
 
 ## Instalación
 
