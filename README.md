@@ -23,9 +23,13 @@ Esta plantilla es ideal para desarrolladores que desean crear una aplicación we
 ## Instrucciones de uso
 
 1. Clona este repositorio o crea un nuevo proyecto Next.js.
-2. Configura la autenticación JWT en `utils/auth.ts`.
+2. Configura la autenticación JWT en `utils/auth/authOptions.ts`.
 3. Instala y configura Next-Theme y Shadcn/UI según la documentación oficial.
 4. Crea tus rutas protegidas y utiliza los componentes de Shadcn/UI para diseñar tu interfaz.
+
+## Extra
+
+Eres libre de añadir o remover código. Utiliza esta base para crear tu mejor proyecto
 
 ## Instalación
 
@@ -42,6 +46,6 @@ Instalar dependencias:
   npm install
 ```
 
-## Authors
+## Autor
 
 - [@nicoschonfeld\_](https://nicoschonfeld.vercel.app/)
