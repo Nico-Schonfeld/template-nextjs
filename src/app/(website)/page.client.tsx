@@ -16,10 +16,22 @@ import {
 import texts from "@/messages/en.json";
 import Link from "next/link";
 
+// Redux/toolkit
+import { RootState } from "@/redux/store";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  increment,
+  decrement,
+  incrementByAmount,
+} from "@/redux/features/counter/counterSlice";
+
 const AppComponent = () => {
   const { setTheme } = useTheme();
 
   const text = texts.layout.home;
+
+  const count = useSelector((state: RootState) => state.counter.value);
+  const dispatch = useDispatch();
 
   return (
     <main className="w-full h-screen overflow-hidden">
@@ -121,6 +133,17 @@ const AppComponent = () => {
             {text.spanDescription}
           </code>
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="flex items-center justify-center gap-5 mt-5"
+        >
+          <Button onClick={() => dispatch(decrement())}>-</Button>
+          <span>{count}</span>
+          <Button onClick={() => dispatch(increment())}>+</Button>
+        </motion.div>
       </div>
     </main>
   );
