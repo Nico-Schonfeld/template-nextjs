@@ -25,6 +25,9 @@ import {
   incrementByAmount,
 } from "@/redux/features/counter/counterSlice";
 
+// Momentjs
+import moment from "moment";
+
 const AppComponent = () => {
   const { setTheme } = useTheme();
 
@@ -115,9 +118,9 @@ const AppComponent = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-4xl lg:text-5xl font-bold text-balance text-center"
+          className="text-4xl lg:text-5xl font-black text-balance text-center"
         >
-          {text.title}
+          <span>{text.title}</span>
           <span className="animate-background-shine bg-[linear-gradient(110deg,#000000,45%,#c4c4c4,55%,#000000)] dark:bg-[linear-gradient(110deg,#ffffff,45%,#c8c8c8,55%,#ffffff)] bg-[length:250%_100%] bg-clip-text text-transparent">
             {text.spanTitle}
           </span>
@@ -149,6 +152,21 @@ const AppComponent = () => {
           </Button>
         </motion.div>
       </div>
+
+      <footer className="w-full h-auto fixed bottom-0 left-0 border-b overflow-hidden">
+        <div className="w-full h-full container mx-auto flex items-center justify-center px-5 py-3 text-gray-500">
+          <span>
+            © {moment().format("YYYY")} Template Next.js,{" "}
+            <Link
+              href="https://nicoschonfeld.vercel.app/"
+              target="_blank"
+              className="hover:text-gray-800 dark:hover:text-gray-200 transition-all"
+            >
+              @Nicoschonfeld
+            </Link>
+          </span>
+        </div>
+      </footer>
     </main>
   );
 };
