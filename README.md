@@ -8,7 +8,6 @@ Esta plantilla es ideal para desarrolladores que desean crear una aplicación we
 
 1. **Autenticación JWT**:
 
-   - Registro de usuarios con validación de campos.
    - Inicio de sesión con generación de tokens JWT.
    - Protección de rutas privadas mediante middleware.
 
