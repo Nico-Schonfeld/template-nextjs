@@ -137,7 +137,7 @@ const AppComponent = () => {
           <span>
             © {moment().format("YYYY")} Template Next.js,{" "}
             <Link
-              href="https://nicoschonfeld.vercel.app/"
+              href="https://www.linkedin.com/in/nicoschonfeld/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-800 dark:hover:text-gray-200 transition-all"
