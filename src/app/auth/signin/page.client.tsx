@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+
+import LogoNext from "@/components/LogoNext";
 
 const SigninComponent = () => {
   return (
@@ -15,7 +16,7 @@ const SigninComponent = () => {
       <div className="w-full h-full flex items-center justify-center py-12 px-5 relative">
         <div className="mx-auto grid w-[350px] gap-6">
           <Link href="/" className="text-xl absolute top-10 left-10">
-            <b>Next.js</b>
+            <LogoNext />
           </Link>
 
           <div className="grid gap-2 text-center">

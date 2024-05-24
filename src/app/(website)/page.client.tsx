@@ -27,9 +27,10 @@ import {
 
 // Momentjs
 import moment from "moment";
+import LogoNext from "@/components/LogoNext";
 
 const AppComponent = () => {
-  const { setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
 
   const text = texts.layout.home;
 
@@ -40,16 +41,14 @@ const AppComponent = () => {
     <main className="w-full h-screen overflow-hidden">
       <header className="w-full h-auto fixed top-0 left-0 border-b overflow-hidden">
         <nav className="w-full h-full container mx-auto flex items-center justify-between px-5 py-3">
-          <div>
-            <Link
-              href="https://nextjs.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-lg"
-            >
-              Next.js
-            </Link>
-          </div>
+          <Link
+            href="https://nextjs.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-lg"
+          >
+            <LogoNext />
+          </Link>
 
           <div>
             <DropdownMenu>
@@ -97,9 +96,6 @@ const AppComponent = () => {
                 <DropdownMenuItem onClick={() => setTheme("dark")}>
                   Dark
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}>
-                  System
-                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -113,13 +109,18 @@ const AppComponent = () => {
             {text.spanTitle}
           </span>
         </h1>
-        <p className="mt-5 text-pretty text-center flex items-center flex-col gap-3 lg:flex-row">
-          {text.description}
-          <code className="bg-gray-100 dark:bg-transparent dark:border p-3 rounded-md text-sm dark:text-gray-300">
-            {text.spanDescription}
-          </code>
-        </p>
+        <div className="flex flex-col gap-2 mt-5">
+          <p className="text-pretty text-center flex items-center flex-col gap-2 lg:flex-row">
+            {text.description}
+            <code className="bg-gray-100 dark:bg-[#282828] px-2 py-0.5 rounded-md text-sm dark:text-gray-300">
+              {text.spanDescription}
+            </code>
+          </p>
 
+          <p className="text-pretty text-center flex items-center flex-col gap-2 lg:flex-row">
+            {text.descriptionTwo}
+          </p>
+        </div>
         <div className="flex items-center justify-center gap-5 mt-5">
           <Button variant="secondary" onClick={() => dispatch(decrement())}>
             -

@@ -7,8 +7,17 @@
       },
       "title": "Template ",
       "spanTitle": "Next.js",
-      "description": "To get started, edit the file: ",
-      "spanDescription": "@/app/(website)/page.client.tsx"
+      "description": "1. Get started by editing ",
+      "spanDescription": "app/(website)/page.client.tsx",
+      "descriptionTwo": "2. Save and see your changes instantly.",
+      "deplyBtn": {
+        "title": "Deploy now",
+        "link": "https://vercel.com/"
+      },
+      "docuBtn": {
+        "title": "Read our docs",
+        "link": "https://nextjs.org/docs"
+      }
     }
   },
 
