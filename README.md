@@ -2,7 +2,7 @@
 
 Esta plantilla es ideal para desarrolladores que desean crear una aplicación web con Next.js. Incluye las siguientes funcionalidades:
 
-![Post](https://template-nextjs-v1.vercel.app/assets/photos/photo-template-next.png)
+![Post](https://template-nextjs-v1.vercel.app/assets/photos/photo-template-nextjs.png)
 
 ## Características clave
 
