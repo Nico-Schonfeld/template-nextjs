@@ -142,7 +142,7 @@ const AppComponent = () => {
               rel="noopener noreferrer"
               className="hover:text-gray-800 dark:hover:text-gray-200 transition-all"
             >
-              @Nicoschonfeld
+              @nicoschonfeld
             </Link>
           </span>
         </div>
