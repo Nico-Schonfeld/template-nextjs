@@ -50,7 +50,7 @@ Esta plantilla es ideal para desarrolladores que desean crear una aplicación we
 
    - Biblioteca de animación para React que te permite animar elementos de tu interfaz de usuario.
 
-10. **Framer-Motion**:
+10. **TailwindCSS**:
 
 - Un marco de CSS de utilidad para la creación rápida de diseños personalizados.
 
