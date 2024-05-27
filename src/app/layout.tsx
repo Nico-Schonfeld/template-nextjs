@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Template Nextjs",
-  description: "v.1.0.0",
+  description: "Esta plantilla es ideal para desarrolladores que desean crear una aplicación web con Next.js.",
 };
 
 export default function RootLayout({
