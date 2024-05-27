@@ -61,7 +61,7 @@ Esta plantilla es ideal para desarrolladores que desean crear una aplicación we
 
 ## Instrucciones de uso
 
-Eres libre de añadir o eliminar módulos. Modifica todo el código que quieras, utiliza esta plantilla base para crear tu mejor proyecto.
+Te invito a que añadas o elimines módulos según tus necesidades. Modifica todo el código que desees y utiliza esta plantilla como base para crear tu mejor proyecto.
 
 ## Instalación
 
