@@ -14,7 +14,8 @@ Esta plantilla es ideal para desarrolladores que desean crear una aplicación we
 2. **MercadoPago**:
 
    - Esta plantilla viene con el SDK de MercadoPago ya integrado, listo para ser configurado y usado en tus proyectos
-   - La configuración de MercadoPago se encuentra en la ruta `/utils/MercadoPago/mp.ts`, donde puedes establecer tus credenciales y personalizar las opciones según tus necesidades.
+   - La configuración de MercadoPago se encuentra en la ruta `/services/mercadopago.services.ts`, donde puedes establecer tus credenciales y personalizar las opciones según tus necesidades.
+   - En la ruta `/app/api/MercadoPago/route.ts` se encuentra la API para procesar la información después del pago.
 
 3. **Prisma ORM**:
 
