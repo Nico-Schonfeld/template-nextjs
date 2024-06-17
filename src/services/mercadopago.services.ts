@@ -17,6 +17,7 @@ export class MercadoPagoServices {
             failure: "/failure",
             pending: "/pending",
           },
+          auto_return: "approved",
         },
       });
 
