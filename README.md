@@ -1,4 +1,4 @@
-# Plantilla de Next.js + TypeScript con Autenticación JWT, MercadoPago, PrismaORM, Next-Theme, Shadcn/UI, Redux/Toolkit y TailwindCSS
+# Plantilla de Next.js + TypeScript con Autenticación JWT, MercadoPago, PrismaORM, Next-Theme, Shadcn/UI, Redux/Toolkit, TailwindCSS y Zod.
 
 Esta plantilla es ideal para desarrolladores que desean crear una aplicación web con Next.js. Incluye las siguientes funcionalidades:
 
