@@ -36,6 +36,43 @@ export const isNullFunction = (nullValue: null | undefined) => {
   return res;
 };
 
+// validate user schema
+const userSchema = z
+  .object({
+    firstName: z
+      .string({
+        required_error: "First name is required",
+      })
+      .min(3, {
+        message: "first name must be at least 3 characters long",
+      })
+      .max(50),
+    lastName: z
+      .string({
+        required_error: "Last name is required",
+      })
+      .min(3)
+      .max(50),
+    email: z
+      .string({
+        required_error: "Email is required",
+      })
+      .email(),
+    password: z
+      .string({ required_error: "Password is required" })
+      .min(6)
+      .max(50),
+    confirmPassword: z
+      .string({ required_error: "Confirm password is required" })
+      .min(6)
+      .max(50),
+    age: z.number().int().positive().min(18).max(100).optional(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Password do not match",
+    path: ["confirmPassword"],
+  });
+
 // Añadir mas funciones segun lo necesiten...
 
 /* =========================== [ Schema Object ] ============================= */
