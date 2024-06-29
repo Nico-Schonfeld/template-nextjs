@@ -8,7 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Template Nextjs",
-  description: "Esta plantilla es ideal para desarrolladores que desean crear una aplicación web con Next.js.",
+  description:
+    "Esta plantilla es ideal para desarrolladores que desean crear una aplicación web con Next.js.",
 };
 
 export default function RootLayout({
@@ -17,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
