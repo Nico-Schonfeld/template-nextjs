@@ -6,9 +6,29 @@ const secretKey2 = process.env.NEXT_PUBLIC_KEY_ENCODE;
 export const encryptId = (id: string): string => {
   return secretKey ? CryptoJS.AES.encrypt(id, secretKey).toString() : "";
 };
+
 export const encryptIdPublic = (id: string): string | null => {
   return secretKey2 ? CryptoJS.AES.encrypt(id, secretKey2).toString() : "";
 };
+
+// Función para descifrar un ID
+export const decryptId = (cipherText: string): string | null => {
+  if (!secretKey || !cipherText) {
+    return null;
+  }
+  const bytes = CryptoJS.AES.decrypt(cipherText, secretKey);
+  return bytes.toString(CryptoJS.enc.Utf8);
+};
+
+export const decryptIdPublic = (cipherText: string): string | null => {
+  if (!secretKey2 || !cipherText) {
+    return null;
+  }
+  const bytes = CryptoJS.AES.decrypt(cipherText, secretKey2);
+
+  return bytes.toString(CryptoJS.enc.Utf8);
+};
+
 
 // Funcionamiento:
 {
