@@ -4,15 +4,13 @@ import "./globals.scss";
 import { ThemeProvider } from "@/components/theme-provider";
 import ReduxProvider from "@/redux/provider";
 import { ViewTransitions } from "next-view-transitions";
-import moment from "moment";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const year = moment().format("YYYY");
-
 export const metadata: Metadata = {
-  title: `Ahorro Objetivo ${year}`,
-  description: "...",
+  title: "Template Nextjs",
+  description:
+    "Esta plantilla es ideal para desarrolladores que desean crear una aplicación web con Next.js.",
 };
 
 export default function RootLayout({
@@ -26,7 +24,7 @@ export default function RootLayout({
         <body className={inter.className}>
           <ThemeProvider
             attribute="class"
-            defaultTheme="dark"
+            defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
