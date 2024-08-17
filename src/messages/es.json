@@ -1,0 +1,29 @@
+{
+  "layout": {
+    "home": {
+      "cards": [
+        {
+          "id": 0,
+          "title": "Objetivo a Ahorrar"
+        },
+        {
+          "id": 1,
+          "title": "Total Ahorrado"
+        },
+        {
+          "id": 2,
+          "title": "Faltante"
+        }
+      ]
+    }
+  },
+
+  "admin": {},
+
+  "pageNotFound": {
+    "title": "Oooooops!",
+    "description": "Error 404",
+    "link": "/",
+    "textLink": "Back"
+  }
+}

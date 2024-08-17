@@ -1,154 +1,341 @@
 "use client";
 
 import React from "react";
-import { useTheme } from "next-themes";
-import { motion } from "framer-motion";
 
-// Add more shadcn/ui components with the command: `npx shadcn-ui@latest add`
+import Link from "next/link";
+import {
+  Activity,
+  ArrowUpRight,
+  CircleUser,
+  CreditCard,
+  DollarSign,
+  Menu,
+  Package2,
+  Search,
+  Users,
+} from "lucide-react";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
-import texts from "@/messages/en.json";
-import Link from "next/link";
-
-// Redux/toolkit
-import { RootState } from "@/redux/store";
-import { useSelector, useDispatch } from "react-redux";
+import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
-  increment,
-  decrement,
-  incrementByAmount,
-} from "@/redux/features/counter/counterSlice";
-
-// Momentjs
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import moment from "moment";
-import LogoNext from "@/components/LogoNext";
+import texts from "@/messages/es.json";
 
-const AppComponent = () => {
-  const { setTheme, theme } = useTheme();
+import { TrendingUp } from "lucide-react";
+import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+const chartData = [{ month: "january", desktop: 1260, mobile: 570 }];
 
+const chartConfig = {
+  desktop: {
+    label: "Desktop",
+    color: "hsl(var(--chart-1))",
+  },
+  mobile: {
+    label: "Mobile",
+    color: "hsl(var(--chart-2))",
+  },
+} satisfies ChartConfig;
+
+const AppClient = () => {
   const text = texts.layout.home;
-
-  const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch();
+  const year = moment().format("YYYY");
+  const totalVisitors = chartData[0].desktop + chartData[0].mobile;
 
   return (
-    <main className="w-full h-screen overflow-hidden">
-      <header className="w-full h-auto fixed top-0 left-0 border-b overflow-hidden">
-        <nav className="w-full h-full container mx-auto flex items-center justify-between px-5 py-3">
-          <Link
-            href="https://nextjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-bold text-lg"
-          >
-            <LogoNext />
-          </Link>
-
-          <div>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon">
-                  <span className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-5 h-5"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-                      />
-                    </svg>
-                  </span>
-                  <span className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-5 h-5"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-                      />
-                    </svg>
-                  </span>
-                  <span className="sr-only">Toggle theme</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setTheme("light")}>
-                  Light
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")}>
-                  Dark
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        </nav>
+    <div className="flex min-h-screen w-full flex-col">
+      <header className="sticky top-0 left-0 bg-background flex w-full h-16 items-center justify-end gap-4 border-b px-4 md:px-6 z-10">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="secondary" size="icon" className="rounded-full">
+              <CircleUser className="h-5 w-5" />
+              <span className="sr-only">Toggle user menu</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>Settings</DropdownMenuItem>
+            <DropdownMenuItem>Support</DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>Logout</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </header>
-
-      <div className="w-full h-full container mx-auto flex items-center justify-center flex-col gap-1 lg:gap-5">
-        <h1 className="text-4xl lg:text-5xl font-black text-balance text-center">
-          <span>{text.title}</span>
-          <span className="animate-background-shine bg-[linear-gradient(110deg,#000000,45%,#c4c4c4,55%,#000000)] dark:bg-[linear-gradient(110deg,#ffffff,45%,#c8c8c8,55%,#ffffff)] bg-[length:250%_100%] bg-clip-text text-transparent">
-            {text.spanTitle}
-          </span>
-        </h1>
-        <div className="flex flex-col gap-2 mt-5">
-          <p className="text-pretty text-center flex items-center flex-col gap-2 lg:flex-row">
-            {text.description}
-            <code className="bg-gray-100 dark:bg-[#282828] px-2 py-0.5 rounded-md text-sm dark:text-gray-300">
-              {text.spanDescription}
-            </code>
-          </p>
-
-          <p className="text-pretty text-center flex items-center flex-col gap-2 lg:flex-row">
-            {text.descriptionTwo}
-          </p>
+      <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
+        <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+          {text.cards.map((item, index) => (
+            <Card key={item.id} x-chunk={`dashboard-01-chunk-${index}`}>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                  {item.id === 1 ? `${item.title} ${year}` : item.title}
+                </CardTitle>
+                <DollarSign className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">$45,231.89</div>
+                {/*  <p className="text-xs text-muted-foreground">
+                  +20.1% from last month
+                </p> */}
+              </CardContent>
+            </Card>
+          ))}
         </div>
-        <div className="flex items-center justify-center gap-5 mt-5">
-          <Button variant="secondary" onClick={() => dispatch(decrement())}>
-            -
-          </Button>
-          <span>{count}</span>
-          <Button variant="secondary" onClick={() => dispatch(increment())}>
-            +
-          </Button>
-        </div>
-      </div>
+        <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
+          <Card className="xl:col-span-2" x-chunk="dashboard-01-chunk-4">
+            <CardHeader className="flex flex-row items-center">
+              <div className="grid gap-2">
+                <CardTitle>Transactions</CardTitle>
+                <CardDescription>
+                  Recent transactions from your store.
+                </CardDescription>
+              </div>
+              <Button asChild size="sm" className="ml-auto gap-1">
+                <Link href="#">
+                  View All
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </CardHeader>
+            <CardContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Customer</TableHead>
+                    <TableHead className="hidden xl:table-column">
+                      Type
+                    </TableHead>
+                    <TableHead className="hidden xl:table-column">
+                      Status
+                    </TableHead>
+                    <TableHead className="hidden xl:table-column">
+                      Date
+                    </TableHead>
+                    <TableHead className="text-right">Amount</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>
+                      <div className="font-medium">Liam Johnson</div>
+                      <div className="hidden text-sm text-muted-foreground md:inline">
+                        liam@example.com
+                      </div>
+                    </TableCell>
+                    <TableCell className="hidden xl:table-column">
+                      Sale
+                    </TableCell>
+                    <TableCell className="hidden xl:table-column">
+                      <Badge className="text-xs" variant="outline">
+                        Approved
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell lg:hidden xl:table-column">
+                      2023-06-23
+                    </TableCell>
+                    <TableCell className="text-right">$250.00</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <div className="font-medium">Olivia Smith</div>
+                      <div className="hidden text-sm text-muted-foreground md:inline">
+                        olivia@example.com
+                      </div>
+                    </TableCell>
+                    <TableCell className="hidden xl:table-column">
+                      Refund
+                    </TableCell>
+                    <TableCell className="hidden xl:table-column">
+                      <Badge className="text-xs" variant="outline">
+                        Declined
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell lg:hidden xl:table-column">
+                      2023-06-24
+                    </TableCell>
+                    <TableCell className="text-right">$150.00</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <div className="font-medium">Noah Williams</div>
+                      <div className="hidden text-sm text-muted-foreground md:inline">
+                        noah@example.com
+                      </div>
+                    </TableCell>
+                    <TableCell className="hidden xl:table-column">
+                      Subscription
+                    </TableCell>
+                    <TableCell className="hidden xl:table-column">
+                      <Badge className="text-xs" variant="outline">
+                        Approved
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell lg:hidden xl:table-column">
+                      2023-06-25
+                    </TableCell>
+                    <TableCell className="text-right">$350.00</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <div className="font-medium">Emma Brown</div>
+                      <div className="hidden text-sm text-muted-foreground md:inline">
+                        emma@example.com
+                      </div>
+                    </TableCell>
+                    <TableCell className="hidden xl:table-column">
+                      Sale
+                    </TableCell>
+                    <TableCell className="hidden xl:table-column">
+                      <Badge className="text-xs" variant="outline">
+                        Approved
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell lg:hidden xl:table-column">
+                      2023-06-26
+                    </TableCell>
+                    <TableCell className="text-right">$450.00</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <div className="font-medium">Liam Johnson</div>
+                      <div className="hidden text-sm text-muted-foreground md:inline">
+                        liam@example.com
+                      </div>
+                    </TableCell>
+                    <TableCell className="hidden xl:table-column">
+                      Sale
+                    </TableCell>
+                    <TableCell className="hidden xl:table-column">
+                      <Badge className="text-xs" variant="outline">
+                        Approved
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell lg:hidden xl:table-column">
+                      2023-06-27
+                    </TableCell>
+                    <TableCell className="text-right">$550.00</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
 
-      <footer className="w-full h-auto fixed bottom-0 left-0 border-b overflow-hidden">
-        <div className="w-full h-full container mx-auto flex items-center justify-center px-5 py-3 text-gray-500 text-pretty text-center text-sm">
-          <span>
-            © {moment().format("YYYY")} Template Next.js,{" "}
-            <Link
-              href="https://www.linkedin.com/in/nicoschonfeld/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-800 dark:hover:text-gray-200 transition-all"
-            >
-              @nicoschonfeld
-            </Link>
-          </span>
+          <Card x-chunk="dashboard-01-chunk-5" className="flex flex-col">
+            <CardHeader className="items-center pb-0">
+              <CardTitle>Radial Chart - Stacked</CardTitle>
+              <CardDescription>January - June 2024</CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-1 items-center pb-0">
+              <ChartContainer
+                config={chartConfig}
+                className="mx-auto aspect-square w-full max-w-[250px]"
+              >
+                <RadialBarChart
+                  data={chartData}
+                  endAngle={180}
+                  innerRadius={80}
+                  outerRadius={130}
+                >
+                  <ChartTooltip
+                    cursor={false}
+                    content={<ChartTooltipContent hideLabel />}
+                  />
+                  <PolarRadiusAxis
+                    tick={false}
+                    tickLine={false}
+                    axisLine={false}
+                  >
+                    <Label
+                      content={({ viewBox }) => {
+                        if (viewBox && "cx" in viewBox && "cy" in viewBox) {
+                          return (
+                            <text
+                              x={viewBox.cx}
+                              y={viewBox.cy}
+                              textAnchor="middle"
+                            >
+                              <tspan
+                                x={viewBox.cx}
+                                y={(viewBox.cy || 0) - 16}
+                                className="fill-foreground text-2xl font-bold"
+                              >
+                                {totalVisitors.toLocaleString()}
+                              </tspan>
+                              <tspan
+                                x={viewBox.cx}
+                                y={(viewBox.cy || 0) + 4}
+                                className="fill-muted-foreground"
+                              >
+                                Visitors
+                              </tspan>
+                            </text>
+                          );
+                        }
+                      }}
+                    />
+                  </PolarRadiusAxis>
+                  <RadialBar
+                    dataKey="desktop"
+                    stackId="a"
+                    cornerRadius={5}
+                    fill="var(--color-desktop)"
+                    className="stroke-transparent stroke-2"
+                  />
+                  <RadialBar
+                    dataKey="mobile"
+                    fill="var(--color-mobile)"
+                    stackId="a"
+                    cornerRadius={5}
+                    className="stroke-transparent stroke-2"
+                  />
+                </RadialBarChart>
+              </ChartContainer>
+            </CardContent>
+            <CardFooter className="flex-col gap-2 text-sm">
+              <div className="flex items-center gap-2 font-medium leading-none">
+                Trending up by 5.2% this month{" "}
+                <TrendingUp className="h-4 w-4" />
+              </div>
+              <div className="leading-none text-muted-foreground">
+                Showing total visitors for the last 6 months
+              </div>
+            </CardFooter>
+          </Card>
         </div>
-      </footer>
-    </main>
+      </main>
+    </div>
   );
 };
 
-export default AppComponent;
+export default AppClient;

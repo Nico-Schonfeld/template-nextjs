@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import texts from "@/messages/en.json";
+import texts from "@/messages/es.json";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
