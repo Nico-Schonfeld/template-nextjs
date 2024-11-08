@@ -35,7 +35,7 @@ export async function login(formData: FormData) {
   const expires = new Date(Date.now() + 600 * 1000);
   const session = await encrypt({ user, expires });
 
-  cookies().set("session", session, { expires, httpOnly: true });
+  (await cookies()).set("session", session, { expires, httpOnly: true });
 
   return {
     error: false,
@@ -50,11 +50,11 @@ export async function login(formData: FormData) {
 }
 
 export async function logout() {
-  cookies().set("session", "", { expires: new Date(0) });
+  (await cookies()).set("session", "", { expires: new Date(0) });
 }
 
 export async function getSession() {
-  const session = cookies().get("session")?.value;
+  const session = (await cookies()).get("session")?.value;
   if (!session) return null;
   return await decrypt(session);
 }
