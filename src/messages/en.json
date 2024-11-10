@@ -1,0 +1,31 @@
+{
+  "layout": {
+    "home": {
+      "header": {
+        "link": "https://nextjs.org/"
+      },
+      "title": "Template ",
+      "spanTitle": "Next.js",
+      "description": "Get started by editing ",
+      "spanDescription": "app/(website)/page.client.tsx",
+      "descriptionTwo": "Save and see your changes instantly.",
+      "deplyBtn": {
+        "title": "Deploy now",
+        "link": "https://vercel.com/"
+      },
+      "docuBtn": {
+        "title": "Read our docs",
+        "link": "https://nextjs.org/docs"
+      }
+    }
+  },
+
+  "admin": {},
+
+  "pageNotFound": {
+    "title": "Oooooops!",
+    "description": "Error 404",
+    "link": "/",
+    "textLink": "Back"
+  }
+}
