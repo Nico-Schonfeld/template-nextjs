@@ -37,7 +37,7 @@ export const isNullFunction = (nullValue: null | undefined) => {
 };
 
 // validate user schema
-const userSchema = z
+/* const userSchema = z
   .object({
     firstName: z
       .string({
@@ -71,7 +71,7 @@ const userSchema = z
   .refine((data) => data.password === data.confirmPassword, {
     message: "Password do not match",
     path: ["confirmPassword"],
-  });
+  }); */
 
 // Añadir mas funciones segun lo necesiten...
 

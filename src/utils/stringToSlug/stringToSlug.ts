@@ -1,10 +1,10 @@
-export function string_to_slug(str: string) {
+export function string_to_slug(str: string): string {
   str = str.replace(/^\s+|\s+$/g, ""); // trim
   str = str.toLowerCase();
 
   // remove accents, swap ñ for n, etc
-  let from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
-  let to = "aaaaeeeeiiiioooouuuunc------";
+  const from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
+  const to = "aaaaeeeeiiiioooouuuunc------";
   for (let i = 0, l = from.length; i < l; i++) {
     str = str.replace(new RegExp(from.charAt(i), "g"), to.charAt(i));
   }

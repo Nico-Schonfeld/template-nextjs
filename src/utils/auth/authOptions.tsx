@@ -1,11 +1,22 @@
-import { SignJWT, jwtVerify } from "jose";
+import { SignJWT, jwtVerify, JWTPayload } from "jose";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 const secretKey = "d43mo5kid80ad2heq28ndiah09dnioawed8q2";
 const key = new TextEncoder().encode(secretKey);
 
-export async function encrypt(payload: any) {
+interface User {
+  name: string;
+  email: string;
+  avatar: string;
+}
+
+interface Payload {
+  user: User;
+  expires: Date;
+}
+
+export async function encrypt(payload: Payload): Promise<string> {
   return await new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
@@ -13,11 +24,11 @@ export async function encrypt(payload: any) {
     .sign(key);
 }
 
-export async function decrypt(input: string): Promise<any> {
+export async function decrypt(input: string): Promise<JWTPayload & Payload> {
   const { payload } = await jwtVerify(input, key, {
     algorithms: ["HS256"],
   });
-  return payload;
+  return payload as JWTPayload & Payload;
 }
 
 export async function login(formData: FormData) {
@@ -26,7 +37,7 @@ export async function login(formData: FormData) {
   if (!getEmail || typeof getEmail !== "string")
     return { error: true, success: false, message: "* Required field" };
 
-  const user = {
+  const user: User = {
     name: "John Doe",
     email: getEmail,
     avatar: "/assets/avatars/avatar1.svg",
@@ -69,8 +80,8 @@ export async function updateSession(req: NextRequest) {
   const res = NextResponse.next();
 
   res.cookies.set({
-    name: session,
-    value: await encrypt(parsed),
+    name: "session",
+    value: await encrypt(parsed as Payload),
     httpOnly: true,
     expires: parsed.expires,
   });
