@@ -14,6 +14,7 @@ interface User {
 interface Payload {
   user: User;
   expires: Date;
+  [key: string]: unknown; // Signatura de índice para el tipo string
 }
 
 export async function encrypt(payload: Payload): Promise<string> {
