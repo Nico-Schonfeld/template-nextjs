@@ -29,6 +29,7 @@ export const decryptIdPublic = (cipherText: string): string | null => {
   return bytes.toString(CryptoJS.enc.Utf8);
 };
 
+
 // Funcionamiento:
 {
   /* <button
@@ -39,12 +40,12 @@ export const decryptIdPublic = (cipherText: string): string | null => {
     background: "transparent",
   }}
   onClick={() => {
-    const cardIdEncrypted = encodeURIComponent(
+    const provinceIdEncrypted = encodeURIComponent(
       encryptIdPublic(cardId) || ""
     );
 
     router.push(
-      `/home/cards/detalle?data=${cardIdEncrypted}`
+      `/home/cards/detalle?data=${provinceIdEncrypted}`
     );
   }}
 >

@@ -1,8 +1,4 @@
-interface State {
-  [key: string]: unknown; // Puedes ajustar esto según los tipos específicos de tus valores
-}
-
-export const validateAllFieldsFilled = (state: State): boolean => {
+export const validateAllFieldsFilled = (state: any) => {
   // Validar que todos los campos del estado están llenos
   const allFieldsFilled = Object.values(state).every(
     (value) => value !== null && value !== ""
