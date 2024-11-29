@@ -1,32 +1,42 @@
-import { SignJWT, jwtVerify } from "jose";
+import { SignJWT, jwtVerify, JWTPayload } from "jose";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 const secretKey = "d43mo5kid80ad2heq28ndiah09dnioawed8q2";
 const key = new TextEncoder().encode(secretKey);
 
-export async function encrypt(payload: any) {
+interface User {
+  name: string;
+  email: string;
+  avatar: string;
+}
+
+interface Payload {
+  user: User;
+  expires: Date;
+  [key: string]: unknown; // Añadir firma de índice para el tipo string
+}
+
+export async function encrypt(payload: Payload): Promise<string> {
   return await new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime("10 minutes")
+    .setExpirationTime("10m") // usando "10m" para 10 minutos
     .sign(key);
 }
 
-export async function decrypt(input: string): Promise<any> {
-  const { payload } = await jwtVerify(input, key, {
-    algorithms: ["HS256"],
-  });
-  return payload;
+export async function decrypt(input: string): Promise<JWTPayload & Payload> {
+  const { payload } = await jwtVerify(input, key, { algorithms: ["HS256"] });
+  return payload as JWTPayload & Payload;
 }
 
 export async function login(formData: FormData) {
   const getEmail = formData.get("email");
-
-  if (!getEmail || typeof getEmail !== "string")
+  if (!getEmail || typeof getEmail !== "string") {
     return { error: true, success: false, message: "* Required field" };
+  }
 
-  const user = {
+  const user: User = {
     name: "John Doe",
     email: getEmail,
     avatar: "/assets/avatars/avatar1.svg",
@@ -34,7 +44,6 @@ export async function login(formData: FormData) {
 
   const expires = new Date(Date.now() + 600 * 1000);
   const session = await encrypt({ user, expires });
-
   (await cookies()).set("session", session, { expires, httpOnly: true });
 
   return {
@@ -42,9 +51,9 @@ export async function login(formData: FormData) {
     success: true,
     message: "Successful Login",
     res: {
-      name: user?.name,
-      email: user?.email,
-      avatar: user?.avatar,
+      name: user.name,
+      email: user.email,
+      avatar: user.avatar,
     },
   };
 }
@@ -65,12 +74,10 @@ export async function updateSession(req: NextRequest) {
 
   const parsed = await decrypt(session);
   parsed.expires = new Date(Date.now() + 600 * 1000);
-
   const res = NextResponse.next();
-
   res.cookies.set({
-    name: session,
-    value: await encrypt(parsed),
+    name: "session",
+    value: await encrypt(parsed as Payload),
     httpOnly: true,
     expires: parsed.expires,
   });
