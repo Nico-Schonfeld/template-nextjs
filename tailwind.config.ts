@@ -50,6 +50,11 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        vico: {
+          green: "var(--vico-green)",
+          yellow: "var(--vico-yellow)",
+          white: "var(--vico-white)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

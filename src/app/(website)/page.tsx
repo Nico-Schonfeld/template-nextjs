@@ -1,7 +1,7 @@
-import AppComponent from "./page.client";
+import LandingPageContainer from "@/containers/LandingPageContainer/LandingPageContainer";
 
 const AppContainer = () => {
-  return <AppComponent />;
+  return <LandingPageContainer />;
 };
 
 export default AppContainer;
