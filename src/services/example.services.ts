@@ -1,21 +1,21 @@
 import revalidateCache from "@/utils/cache/revalidateCache";
 
-const accessToken = true; // Obtener token del la session
+const accessToken = true; // Get token from session
 
-// Crear una clase con las funciones del servicio.
+// Create a class with service functions
 export class ExampleServices {
-  // Añadir las funciones del servicio.
+  // Add service functions
   async exampleFuncionServices(data: string) {
-    // Es una buena practica añadir una validacion para el token
+    // It's a good practice to add token validation
     try {
       if (accessToken) {
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_SERVER_URL}/urlApi...`,
           {
-            method: "POST", // methos HTTP
+            method: "POST", // HTTP method
             next: { tags: ["exampleTag"] },
             headers: {
-              /* Authorization: `Bearer ${accessToken}`, Enviar token si es necesario */
+              /* Authorization: `Bearer ${accessToken}`, Send token if needed */
               "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
@@ -23,7 +23,7 @@ export class ExampleServices {
         );
 
         if (!res.ok) {
-          throw new Error("Error en la request");
+          throw new Error("Request error");
         }
 
         revalidateCache("exampleTag");

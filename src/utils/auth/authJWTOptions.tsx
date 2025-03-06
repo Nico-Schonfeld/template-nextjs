@@ -2,7 +2,7 @@ import { SignJWT, jwtVerify, JWTPayload } from "jose";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-const secretKey = "d43mo5kid80ad2heq28ndiah09dnioawed8q2";
+const secretKey = "d43mo5kid80ad2heq28ndiah09dnioawed8q2"; // TODO: Change to env variable (This is a example key)
 const key = new TextEncoder().encode(secretKey);
 
 interface User {
@@ -14,14 +14,14 @@ interface User {
 interface Payload {
   user: User;
   expires: Date;
-  [key: string]: unknown; // Añadir firma de índice para el tipo string
+  [key: string]: unknown; // Add index signature for the string type
 }
 
 export async function encrypt(payload: Payload): Promise<string> {
   return await new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime("10m") // usando "10m" para 10 minutos
+    .setExpirationTime("10m") // using "10m" for 10 minutes
     .sign(key);
 }
 

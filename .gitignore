@@ -1,36 +1,70 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# Node artifact files
 /node_modules
+/dist
 /.pnp
 .pnp.js
 .yarn/install-state.gz
 
-# testing
+# Testing and coverage
 /coverage
+TEST*.xml
 
-# next.js
+# Next.js
 /.next/
 /out/
 
-# production
+# Production/Build
 /build
+/target
+/dist
 
-# misc
-.DS_Store
-*.pem
+# IDE
+.idea/
 
-# debug
+# Debug and Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
+log/
 
-# local env files
+# Environment and local files
+.env
 .env*.local
+.docker/*
 
-# vercel
-.vercel
+# Package files
+package-lock.json
+*.jar
+*.war
 
-# typescript
+# Compiled files
+*.class
+*.py[cod]
 *.tsbuildinfo
 next-env.d.ts
+
+# OS generated files
+.DS_Store
+Thumbs.db
+*.pem
+
+# Applications
+*.app
+*.exe
+
+# Media files
+*.mp4
+*.tiff
+*.avi
+*.flv
+*.mov
+*.wmv
+
+# Vercel
+.vercel
+
+# Prisma
+prisma/migrations/

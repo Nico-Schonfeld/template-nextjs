@@ -87,4 +87,4 @@ Levanta el proyecto:
 
 ## Autor
 
-- [@nicoschonfeld](https://nicoschonfeld.vercel.app/)
+- [@nicoschonfeld](https://www.linkedin.com/in/nicoschonfeld/)
