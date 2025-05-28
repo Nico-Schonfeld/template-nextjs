@@ -30,7 +30,7 @@ export const decryptIdPublic = (cipherText: string): string | null => {
 };
 
 
-// Funcionamiento:
+// Funcionamiento NEXTJS 14
 {
   /* <button
   className={`${styles["button-movement"]}`}
@@ -76,3 +76,42 @@ const MemberPromotions = ({
 
 export default MemberPromotions;
  */
+
+// Funcionamiento en NEXTJS 15
+// El problema radica en cómo se define el paramsobjeto en las propiedades de la página. A partir de NextJS 15, los objetos ` paramsy` searchParamsson ahora promesas en lugar de objetos síncronos, como en las versiones anteriores a NextJS 15.
+// 'use client'
+
+// import { use, useEffect } from 'react'
+
+//type ApplicationDetailsPageProps = {
+//  params: Promise<{id: string}>
+//}
+
+//export default function ApplicationDetailsPage({ params }: ApplicationDetailsPageProps) {
+//  const { id } = use(params);
+//  return <>...</>
+//}
+
+// Ejemplo:
+
+// const VerOfertaPage = async ({ searchParams }: VerOfertaPageProps) => {
+//  const params = await searchParams;
+//  const originalCode = decodeURIComponent(params.strategy);
+//  const decodeFormString = decryptId(originalCode);
+//  const strategyId = decodeFormString ?? undefined;
+
+//  if (!strategyId) {
+//    notFound();
+//  }
+
+//  const response = await getUnaOfertaAction(strategyId);
+
+//  if (response.error || !response.data) {
+//    notFound();
+//  }
+
+//  const oferta = response.data;
+
+//  return <pre>{JSON.stringify(oferta, null, 2)}</pre>
+
+//}
